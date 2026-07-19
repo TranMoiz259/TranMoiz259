@@ -1,0 +1,7 @@
+/build/
+/world_test_data/
+*.o
+*.a
+*.so
+*.exe
+*.out

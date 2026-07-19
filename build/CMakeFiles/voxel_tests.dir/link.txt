@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/voxel_tests.dir/link.d CMakeFiles/voxel_tests.dir/tests/test_voxel.cpp.o -o voxel_tests  libvoxel_core.a
