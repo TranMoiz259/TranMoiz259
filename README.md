@@ -1,18 +1,27 @@
-## Hi there 👋
+# Voxel Sandbox (C++)
 
-<!--
-**TranMoiz259/TranMoiz259** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Minecraft-like voxel sandbox MVP scaffold in modern C++.
 
-Here are some ideas to get you started:
+## Implemented foundation
+- CMake build with optional GLFW/SDL2/OpenGL toggles.
+- Fixed timestep loop and engine scaffolding.
+- ECS basics, camera/controller, and asset registry.
+- Block registry, chunk data (`16x16x256`), terrain generation.
+- Chunk streaming worker thread.
+- Mesh exposure stats scaffold for greedy meshing.
+- Raycast block selection and break/replace foundation.
+- Basic inventory/hotbar + crafting recipe scaffold.
+- Player gravity/collision-floor baseline.
+- Versioned chunk save/load format.
+- Simple mob simulation with day/night ambient light.
+- GitHub Actions CI build and tests.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
-## I'm curently learning the basics of python
-## I'm looking for help with pygame and python
+## Build
+```bash
+cmake -S . -B build -DVOXEL_BUILD_TESTS=ON
+cmake --build build --parallel
+ctest --test-dir build --output-on-failure
+```
+
+## Notes
+This repository is an MVP scaffold, not full Minecraft parity.

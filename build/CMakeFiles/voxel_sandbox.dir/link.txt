@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/voxel_sandbox.dir/link.d CMakeFiles/voxel_sandbox.dir/src/main.cpp.o -o voxel_sandbox  libvoxel_core.a
