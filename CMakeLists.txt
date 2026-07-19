@@ -15,6 +15,7 @@ add_library(voxel_core
     src/engine/Time.cpp
     src/engine/ECS.cpp
     src/engine/Camera.cpp
+    src/engine/Profiler.cpp
     src/engine/ResourceManager.cpp
     src/voxel/Block.cpp
     src/voxel/Chunk.cpp

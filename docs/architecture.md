@@ -1,20 +1,27 @@
 # Voxel Sandbox Architecture
 
 ## Scope
-This project targets a Minecraft-like voxel sandbox MVP: block world, chunk streaming, mining/placing, inventory/crafting basics, save/load, and simple mobs.
+This repository now includes milestone 1-4 implementation scaffolding for a Minecraft-like voxel sandbox:
+- Walkable procedural world
+- Mine/place and autosave save/load
+- Inventory/crafting and basic mob simulation
+- Performance-oriented streaming/culling/profiling foundations
 
-## Core structure
-- `src/engine`: game loop, fixed timestep, ECS basics, camera/controller, resource manager.
-- `src/voxel`: blocks, chunk data, terrain generation, meshing stats, world streaming thread.
-- `src/gameplay`: raycast mining target, inventory + basic recipes, player physics.
-- `src/persistence`: versioned chunk save/load.
-- `src/entities`: basic mob simulation with time-of-day and ambient light.
+## Runtime layout
+- `src/engine`: application loop, fixed timestep, profiling scopes, camera/controller, ECS basics, resources.
+- `src/voxel`: blocks, chunks, terrain generation, mesh extraction, chunk streaming worker, priority queue, dirty tracking.
+- `src/gameplay`: raycast targeting, inventory/hotbar and crafting, player gravity.
+- `src/persistence`: world manifest + chunk binary persistence with schema versioning.
+- `src/entities`: mob simulation, player-target behavior, damage and cleanup.
+
+## Milestone mapping
+1. **Milestone 1**: `Application`, `World::requestChunksAround`, movement tick.
+2. **Milestone 2**: `raycastBlock`, `World::setBlock`, `World::flushDirtyChunks`, `WorldStore`.
+3. **Milestone 3**: `Inventory`, `Simulation`.
+4. **Milestone 4**: `World` priority requests + chunk pool + `visibleChunkCoords`, `Profiler` instrumentation.
 
 ## Assets
-Runtime assets live under `assets/{textures,shaders,meshes}`.
-
-## Future milestones
-1. Render integration with OpenGL + windowing backend.
-2. Full greedy meshing output and render upload.
-3. Region files + autosave queue.
-4. Pathfinding and networked multiplayer.
+Runtime assets convention remains:
+- `assets/textures`
+- `assets/shaders`
+- `assets/meshes`

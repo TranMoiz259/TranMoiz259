@@ -15,7 +15,10 @@ public:
     bool loadChunk(voxel::voxel_world::ChunkCoord coord, voxel::voxel_world::Chunk& chunk, std::uint64_t expectedSeed) const;
 
 private:
+    bool saveManifest(std::uint64_t seed);
+    bool loadManifest(std::uint64_t expectedSeed) const;
     [[nodiscard]] std::filesystem::path chunkPath(voxel::voxel_world::ChunkCoord coord) const;
+    [[nodiscard]] std::filesystem::path manifestPath() const;
 
     std::filesystem::path root_;
     static constexpr std::uint32_t kFormatVersion = 1;

@@ -17,7 +17,9 @@ struct Mob {
 class Simulation {
 public:
     void spawnMob(voxel::engine::Vec3 position);
-    void tick(float dt);
+    void tick(float dt, voxel::engine::Vec3 playerPosition);
+
+    [[nodiscard]] int damageClosestMob(voxel::engine::Vec3 source, float maxDistance, int damage);
 
     void setTimeOfDay(float normalized);
     [[nodiscard]] float timeOfDay() const;
