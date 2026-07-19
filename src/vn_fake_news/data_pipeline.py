@@ -54,7 +54,8 @@ def create_annotation_template(
 ) -> Path:
     out = Path(output_path)
     out.parent.mkdir(parents=True, exist_ok=True)
-    df = pd.DataFrame({"sample_id": range(1, len(list(texts)) + 1), "text": list(texts), "label": ""})
+    text_list = list(texts)
+    df = pd.DataFrame({"sample_id": range(1, len(text_list) + 1), "text": text_list, "label": ""})
     df.to_csv(out, index=False)
     return out
 
