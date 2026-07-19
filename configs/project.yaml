@@ -1,0 +1,25 @@
+project:
+  name: vietnamese_fake_news_detection
+  domain: health
+  labels:
+    - real
+    - fake
+    - misleading
+
+data:
+  required_columns:
+    - text
+    - label
+    - published_at
+    - source_type
+    - engagement
+  time_test_ratio: 0.2
+
+models:
+  baseline:
+    type: tfidf_logreg
+  phobert:
+    model_name: vinai/phobert-base
+    max_length: 256
+  fusion:
+    strategy: phobert_embedding_plus_metadata
